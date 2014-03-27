@@ -1,0 +1,13 @@
+
+Problem Solver
+==============
+
+This is a repository to post problems and solutions.
+
+There are only two rules:
+
+1. Make a new directory for your given problem; Create solutions in that directory
+2. Make the problems as small and localized as possible; Don't dump entire projects in here
+
+*Southern NH Clojure Group*
+
