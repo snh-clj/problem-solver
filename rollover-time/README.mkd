@@ -8,7 +8,20 @@ How does one model fall-through state in Clojure?
 
 ### Example
 
-TODO - describe the scenario
+Given a cron-like time in edn, and an instance/Date, return the next
+instance that adheres to the cron schedule.
+
+#### Inputs
+
+This input will cause the "rollover" scenario
+
+```clojure
+;; cron-like
+{:minutes [0 15 30 45] :seconds [0 30]}
+
+;; inst
+#inst "2014-03-28T11:46:18.766-00:00"
+```
 
 ## Usage
 
