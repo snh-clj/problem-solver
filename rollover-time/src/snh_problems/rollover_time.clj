@@ -11,7 +11,6 @@
 
 (defn cal->map
   [^Calendar cal]
-  ;;TODO Consider making these lookups a top-level lookup map
   {:hours (.get cal Calendar/HOUR)
    :minutes (.get cal Calendar/MINUTE)
    :seconds (.get cal Calendar/SECOND)})
@@ -43,7 +42,7 @@
   "Returns a set of of keywords, for which their component may rollover"
   [cron inst-map]
   (let [maxes (cron-max cron)]
-    (set ;; TODO: it might make more sense to push this set out to the consumer
+    (set ;; TODO: it might make more sense to push this `set` out to the consumer
       (keep (fn [[k v]]
               (when (> (inst-map k) (maxes k)) k))
             maxes))))
@@ -66,7 +65,7 @@
 (defn select-next
   [steps n]
   (if (empty? steps)
-    (inc n)
+    (inc n) ;; TODO: this should really only inc if the rollover happened
     (select-next* steps n)))
 
 (defn select-min
@@ -110,6 +109,7 @@
       (select-keys (cron-min cron) min-these)))
 
   ;; And as a function...
+  ;; Caution, this still contains bugs, but illustrates one general approach
   (defn next-time
     ([cron]
      (next-time cron (java.util.Date.)))
