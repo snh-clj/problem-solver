@@ -19,6 +19,9 @@ target/
 repl-port
 .nrepl-port
 
+# Boot
+.boot
+
 # Datomic
 *.db
 
