@@ -1,4 +1,3 @@
-
 rollover-time
 =============
 
@@ -10,6 +9,8 @@ How does one model fall-through state in Clojure?
 
 Given a cron-like time in edn, and an instance/Date, return the next
 instance that adheres to the cron schedule.
+
+(See [here](https://github.com/snh-clj/problem-solver/wiki/Scheduler) for a more lengthy description.)
 
 #### Inputs
 
