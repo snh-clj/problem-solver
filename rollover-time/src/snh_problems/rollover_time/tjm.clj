@@ -5,13 +5,17 @@
   "Creates a schedule with value for all fields; not just the ones the user
 supplied."
   [schedule]
-  (merge {:year (range 2014 (Integer/MAX_VALUE))
-          :month (range 1 13)
-          :day (range 1 32)
-          :hour [0]
-          :min [0]
-          :sec [0]}
-         schedule))
+  (merge-with (fn [left-val right-val]
+                (if (coll? right-val)
+                  right-val
+                  (list right-val)))
+              {:year (range 2014 (Integer/MAX_VALUE))
+               :month (range 1 13)
+               :day (range 1 32)
+               :hour [0]
+               :min [0]
+               :sec [0]}
+              schedule))
 
 (defn all-events-from
   "Returns a lazy seq of all the scheduled events after the given time for the
