@@ -24,7 +24,8 @@ given schedule."
                       day (:day schedule)
                       hour (:hour schedule)
                       minute (:min schedule)
-                      second (:sec schedule)]
+                      second (:sec schedule)
+                      :while (<= day (t/number-of-days-in-the-month year month))]
                   (t/date-time year month day hour minute second)))))
 
 (defn next-event
